@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Металлообработка | Проектная деятельность</title>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --light: #f8f9fa;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: var(--primary);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      transition: 0.3s;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    section {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    
+    section.active {
+      display: block;
+    }
+    
+    h1, h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092160607-8a5f6e8b6e2d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80');
+      background-size: cover;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #ddd;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 4px var(--accent);
+    }
+    
+    .resources a {
+      display: block;
+      padding: 12px;
+      background: #f8f9fa;
+      margin: 10px 0;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s;
+    }
+    
+    .resources a:hover {
+      background: #e3f2fd;
+      transform: translateX(10px);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #2c3e50;
+      color: white;
+      margin-top: 3rem;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">МЕТАЛЛООБРАБОТКА</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#" onclick="showSection('main')">Главная</a>
+        <a href="#" onclick="showSection('project')">О проекте</a>
+        <a href="#" onclick="showSection('team')">Участники</a>
+        <a href="#" onclick="showSection('journal')">Журнал</a>
+        <a href="#" onclick="showSection('resources')">Ресурсы</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Главная -->
+  <section id="main" class="active">
+    <div class="hero">
+      <h1>Металлообработка</h1>
+      <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">
+        Проектная деятельность<br>
+        Современный сайт + Telegram-бот
+      </p>
+    </div>
+    <main>
+      <div class="card">
+        <h2>О проекте</h2>
+        <p>Проект выполнен в рамках дисциплины «Проектная деятельность». Основной целью было создание современной системы взаимодействия с клиентами с использованием веб-технологий и Telegram-бота.</p>
+      </div>
+    </main>
+  </section>
+
+  <!-- О проекте -->
+  <section id="project">
+    <main>
+      <h2>Описание проекта</h2>
+      <div class="card">
+        <p><strong>Проект включает:</strong> разработку сайта и Telegram-бота для компании по металлообработке.</p>
+        <br>
+        <p>Основная часть — сайт на HTML. Дополнительно разработан Telegram-бот на Python (aiogram + Telegram Bot API).</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <div class="card">
+          <h3>Функционал сайта</h3>
+          <ul style="margin-top: 1rem;">
+            <li>Главная страница</li>
+            <li>Раздел «О проекте»</li>
+            <li>Страница участников</li>
+            <li>Журнал работы</li>
+            <li>Раздел с ресурсами</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Функционал Telegram-бота</h3>
+          <ul style="margin-top: 1rem;">
+            <li>Просмотр услуг</li>
+            <li>Контактная информация</li>
+            <li>Примерные цены</li>
+            <li>Заказ обратного звонка</li>
+            <li>Часто задаваемые вопросы</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h3>Используемые технологии</h3>
+        <p><strong>Frontend:</strong> HTML, CSS</p>
+        <p><strong>Backend:</strong> Python, aiogram, asyncio</p>
+        <p><strong>API:</strong> Telegram Bot API</p>
+      </div>
+    </main>
+  </section>
+
+  <!-- Участники -->
+  <section id="team">
+    <main>
+      <h2>Участники</h2>
+      
+      <div class="card">
+        <h3>Мухаметзянов Ильдар</h3>
+        <p><strong>Telegram-бот и дизайн сайта</strong></p>
+        <p>Основные обязанности:</p>
+        <ul>
+          <li>Создание Telegram-бота на Python</li>
+          <li>Настройка библиотеки aiogram</li>
+          <li>Реализация кнопочного меню</li>
+          <li>Разработка дизайна сайта</li>
+          <li>Оформление итогового отчёта</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Катин Роман</h3>
+        <p><strong>Разработка сайта на HTML</strong></p>
+        <p>Основные обязанности:</p>
+        <ul>
+          <li>Создание HTML-страниц</li>
+          <li>Вёрстка структуры сайта</li>
+          <li>Настройка навигации</li>
+          <li>Добавление текстового контента</li>
+          <li>Тестирование проекта</li>
+        </ul>
+      </div>
+    </main>
+  </section>
+
+  <!-- Журнал -->
+  <section id="journal">
+    <main>
+      <h2>Журнал работы</h2>
+      <div class="timeline">
+        <div class="timeline-item"><strong>Этап 1 — Планирование проекта</strong><br>Выбрана тема, определены цели и распределены обязанности.</div>
+        <div class="timeline-item"><strong>Этап 2 — Изучение технологий</strong><br>Изучены HTML, Python, aiogram и Telegram Bot API.</div>
+        <div class="timeline-item"><strong>Этап 3 — Разработка дизайна и структуры</strong><br>Создана структура сайта и интерфейс бота.</div>
+        <div class="timeline-item"><strong>Этап 4 — Создание сайта</strong><br>Созданы HTML-страницы, настроена навигация.</div>
+        <div class="timeline-item"><strong>Этап 5 — Разработка Telegram-бота</strong><br>Реализованы команды и обработка номеров телефонов.</div>
+        <div class="timeline-item"><strong>Этап 6 — Тестирование и завершение</strong><br>Проверка, исправление ошибок, оформление отчёта.</div>
+      </div>
+    </main>
+  </section>
+
+  <!-- Ресурсы -->
+  <section id="resources">
+    <main>
+      <h2>Ресурсы</h2>
+      <div class="card resources">
+        <h3>HTML и CSS</h3>
+        <a href="https://developer.mozilla.org/ru/docs/Web/HTML" target="_blank">MDN Web Docs — HTML</a>
+        <a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank">MDN Web Docs — CSS</a>
+        
+        <h3 style="margin-top: 2rem;">Python и Telegram-боты</h3>
+        <a href="https://docs.python.org/3/" target="_blank">Официальная документация Python</a>
+        <a href="https://docs.aiogram.dev/" target="_blank">Документация aiogram</a>
+        <a href="https://core.telegram.org/bots/api" target="_blank">Telegram Bot API</a>
+      </div>
+    </main>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Проектная деятельность • Металлообработка</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+      
+      // Закрываем мобильное меню
+      document.getElementById('navLinks').classList.remove('active');
+    }
+
+    // Мобильное меню
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
